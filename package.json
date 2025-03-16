@@ -1,0 +1,29 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "app",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "NODE_ENV=development electron-forge start",
+    "package": "NODE_ENV=production electron-forge package",
+    "make": "cd vue && npm run build && cd .. && NODE_ENV=production electron-forge make"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.7.0",
+    "@electron-forge/maker-deb": "^7.7.0",
+    "@electron-forge/maker-dmg": "^7.7.0",
+    "@electron-forge/maker-rpm": "^7.7.0",
+    "@electron-forge/maker-squirrel": "^7.7.0",
+    "@electron-forge/maker-zip": "^7.7.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.7.0",
+    "@electron-forge/plugin-fuses": "^7.7.0",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^35.0.1",
+    "electron-reload": "^2.0.0-alpha.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1"
+  }
+}
