@@ -1,7 +1,11 @@
 <script setup>
 import { ref } from 'vue'
 
-const value = ref([])
+const value = ref([
+    '客户1',
+    '车间1-1',
+    '产线1-1-1',
+])
 
 const props = {
     expandTrigger: 'hover',
@@ -13,268 +17,268 @@ const handleChange = (value) => {
 
 const options = [
     {
-        value: 'guide',
-        label: 'Guide',
+        value: '客户1',
+        label: '客户1',
         children: [
             {
-                value: 'disciplines',
-                label: 'Disciplines',
+                value: '车间1-1',
+                label: '车间1-1',
                 children: [
                     {
-                        value: 'consistency',
-                        label: 'Consistency',
+                        value: '产线1-1-1',
+                        label: '产线1-1-1',
                     },
                     {
-                        value: 'feedback',
-                        label: 'Feedback',
+                        value: '产线1-1-2',
+                        label: '产线1-1-2',
                     },
                     {
-                        value: 'efficiency',
-                        label: 'Efficiency',
+                        value: '产线1-1-3',
+                        label: '产线1-1-3',
                     },
                     {
-                        value: 'controllability',
-                        label: 'Controllability',
+                        value: '产线1-1-4',
+                        label: '产线1-1-4',
                     },
                 ],
             },
             {
-                value: 'navigation',
-                label: 'Navigation',
+                value: '车间1-2',
+                label: '车间1-2',
                 children: [
                     {
-                        value: 'side nav',
-                        label: 'Side Navigation',
+                        value: '产线1-2-1',
+                        label: '产线1-2-1',
                     },
                     {
-                        value: 'top nav',
-                        label: 'Top Navigation',
+                        value: '产线1-2-2',
+                        label: '产线1-2-2',
                     },
                 ],
             },
         ],
     },
     {
-        value: 'component',
-        label: 'Component',
+        value: '客户2',
+        label: '客户2',
         children: [
             {
-                value: 'basic',
-                label: 'Basic',
+                value: '车间2-1',
+                label: '车间2-1',
                 children: [
                     {
-                        value: 'layout',
-                        label: 'Layout',
+                        value: '产线2-1-1',
+                        label: '产线2-1-1',
                     },
                     {
-                        value: 'color',
-                        label: 'Color',
+                        value: '产线2-1-2',
+                        label: '产线2-1-2',
                     },
                     {
-                        value: 'typography',
-                        label: 'Typography',
+                        value: '产线2-1-3',
+                        label: '产线2-1-3',
                     },
                     {
-                        value: 'icon',
-                        label: 'Icon',
+                        value: '产线2-1-4',
+                        label: '产线2-1-4',
                     },
                     {
-                        value: 'button',
-                        label: 'Button',
+                        value: '产线2-1-5',
+                        label: '产线2-1-5',
                     },
                 ],
             },
             {
-                value: 'form',
-                label: 'Form',
+                value: '车间2-2',
+                label: '车间2-2',
                 children: [
                     {
-                        value: 'radio',
-                        label: 'Radio',
+                        value: '产线2-2-1',
+                        label: '产线2-2-1',
                     },
                     {
-                        value: 'checkbox',
-                        label: 'Checkbox',
+                        value: '产线2-2-2',
+                        label: '产线2-2-2',
                     },
                     {
-                        value: 'input',
-                        label: 'Input',
+                        value: '产线2-2-3',
+                        label: '产线2-2-3',
                     },
                     {
-                        value: 'input-number',
-                        label: 'InputNumber',
+                        value: '产线2-2-4',
+                        label: '产线2-2-4',
                     },
                     {
-                        value: 'select',
-                        label: 'Select',
+                        value: '产线2-2-5',
+                        label: '产线2-2-5',
                     },
                     {
-                        value: 'cascader',
-                        label: 'Cascader',
+                        value: '产线2-2-6',
+                        label: '产线2-2-6',
                     },
                     {
-                        value: 'switch',
-                        label: 'Switch',
+                        value: '产线2-2-7',
+                        label: '产线2-2-7',
                     },
                     {
-                        value: 'slider',
-                        label: 'Slider',
+                        value: '产线2-2-8',
+                        label: '产线2-2-8',
                     },
                     {
-                        value: 'time-picker',
-                        label: 'TimePicker',
+                        value: '产线2-2-9',
+                        label: '产线2-2-9',
                     },
                     {
-                        value: 'date-picker',
-                        label: 'DatePicker',
+                        value: '产线2-2-10',
+                        label: '产线2-2-10',
                     },
                     {
-                        value: 'datetime-picker',
-                        label: 'DateTimePicker',
+                        value: '产线2-2-11',
+                        label: '产线2-2-11',
                     },
                     {
-                        value: 'upload',
-                        label: 'Upload',
+                        value: '产线2-2-12',
+                        label: '产线2-2-12',
                     },
                     {
-                        value: 'rate',
-                        label: 'Rate',
+                        value: '产线2-2-13',
+                        label: '产线2-2-13',
                     },
                     {
-                        value: 'form',
-                        label: 'Form',
+                        value: '产线2-2-14',
+                        label: '产线2-2-14',
                     },
                 ],
             },
             {
-                value: 'data',
-                label: 'Data',
+                value: '车间2-3',
+                label: '车间2-3',
                 children: [
                     {
-                        value: 'table',
-                        label: 'Table',
+                        value: '产线2-3-1',
+                        label: '产线2-3-1',
                     },
                     {
-                        value: 'tag',
-                        label: 'Tag',
+                        value: '产线2-3-2',
+                        label: '产线2-3-2',
                     },
                     {
-                        value: 'progress',
-                        label: 'Progress',
+                        value: '产线2-3-3',
+                        label: '产线2-3-3',
                     },
                     {
-                        value: 'tree',
-                        label: 'Tree',
+                        value: '产线2-3-4',
+                        label: '产线2-3-4',
                     },
                     {
-                        value: 'pagination',
-                        label: 'Pagination',
+                        value: '产线2-3-5',
+                        label: '产线2-3-5',
                     },
                     {
-                        value: 'badge',
-                        label: 'Badge',
+                        value: '产线2-3-6',
+                        label: '产线2-3-6',
                     },
                 ],
             },
             {
-                value: 'notice',
-                label: 'Notice',
+                value: '车间2-4',
+                label: '车间2-4',
                 children: [
                     {
-                        value: 'alert',
-                        label: 'Alert',
+                        value: '产线2-4-1',
+                        label: '产线2-4-1',
                     },
                     {
-                        value: 'loading',
-                        label: 'Loading',
+                        value: '产线2-4-2',
+                        label: '产线2-4-2',
                     },
                     {
-                        value: 'message',
-                        label: 'Message',
+                        value: '产线2-4-3',
+                        label: '产线2-4-3',
                     },
                     {
-                        value: 'message-box',
-                        label: 'MessageBox',
+                        value: '产线2-4-4',
+                        label: '产线2-4-4',
                     },
                     {
-                        value: 'notification',
-                        label: 'Notification',
+                        value: '产线2-4-5',
+                        label: '产线2-4-5',
+                    }
+                ],
+            },
+            {
+                value: '车间2-5',
+                label: '车间2-5',
+                children: [
+                    {
+                        value: '产线2-5-1',
+                        label: '产线2-5-1',
+                    },
+                    {
+                        value: '产线2-5-2',
+                        label: '产线2-5-2',
+                    },
+                    {
+                        value: '产线2-5-3',
+                        label: '产线2-5-3',
+                    },
+                    {
+                        value: '产线2-5-4',
+                        label: '产线2-5-4',
+                    },
+                    {
+                        value: '产线2-5-5',
+                        label: '产线2-5-5',
                     },
                 ],
             },
             {
-                value: 'navigation',
-                label: 'Navigation',
+                value: '车间2-6',
+                label: '车间2-6',
                 children: [
                     {
-                        value: 'menu',
-                        label: 'Menu',
+                        value: '产线2-6-1',
+                        label: '产线2-6-1',
                     },
                     {
-                        value: 'tabs',
-                        label: 'Tabs',
+                        value: '产线2-6-2',
+                        label: '产线2-6-2',
                     },
                     {
-                        value: 'breadcrumb',
-                        label: 'Breadcrumb',
+                        value: '产线2-6-3',
+                        label: '产线2-6-3',
                     },
                     {
-                        value: 'dropdown',
-                        label: 'Dropdown',
+                        value: '产线2-6-4',
+                        label: '产线2-6-4',
                     },
                     {
-                        value: 'steps',
-                        label: 'Steps',
-                    },
-                ],
-            },
-            {
-                value: 'others',
-                label: 'Others',
-                children: [
-                    {
-                        value: 'dialog',
-                        label: 'Dialog',
+                        value: '产线2-6-5',
+                        label: '产线2-6-5',
                     },
                     {
-                        value: 'tooltip',
-                        label: 'Tooltip',
-                    },
-                    {
-                        value: 'popover',
-                        label: 'Popover',
-                    },
-                    {
-                        value: 'card',
-                        label: 'Card',
-                    },
-                    {
-                        value: 'carousel',
-                        label: 'Carousel',
-                    },
-                    {
-                        value: 'collapse',
-                        label: 'Collapse',
+                        value: '产线2-6-6',
+                        label: '产线2-6-6',
                     },
                 ],
             },
         ],
     },
     {
-        value: 'resource',
-        label: 'Resource',
+        value: '客户3',
+        label: '客户3',
         children: [
             {
-                value: 'axure',
-                label: 'Axure Components',
+                value: '车间3-1',
+                label: '车间3-1',
             },
             {
-                value: 'sketch',
-                label: 'Sketch Templates',
+                value: '车间3-2',
+                label: '车间3-2',
             },
             {
-                value: 'docs',
-                label: 'Design Documentation',
+                value: '车间3-3',
+                label: '车间3-3',
             },
         ],
     },
@@ -295,7 +299,8 @@ updateTime()
     <div class="header">
         <div class="left">
             <img class="logo" src="@/assets/logo.svg" alt="">
-            <el-cascader v-model="value" :options="options" :props="props" @change="handleChange" />
+            <el-cascader style="width: 500px;" v-model="value" :options="options" :props="props" @change="handleChange" />
+            <el-button class="authorization" type="primary">授权</el-button>
         </div>
         <div class="right">
             服务器时间：{{ time }}
@@ -321,5 +326,8 @@ updateTime()
 .logo {
     width: 30px;
     margin-right: 10px;
+}
+.authorization {
+    margin-left: 10px;
 }
 </style>
