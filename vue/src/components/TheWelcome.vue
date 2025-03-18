@@ -93,7 +93,7 @@ onUnmounted(() => {
 })
 
 // 初始创建 WebSocket 连接
-createWebSocket()
+// createWebSocket()
 
 // 表单数据
 const form = ref({
@@ -102,64 +102,104 @@ const form = ref({
 })
 // 保存编辑前的数据
 const oldForm = ref(form.value)
-// 是否正在编辑
-const isEditing = ref(false)
+// 是否显示弹窗
+const isDialogVisible = ref(false)
 // 编辑
 const edit = () => {
   oldForm.value = { ...form.value }
-  isEditing.value = true
+  isDialogVisible.value = true
 }
 // 提交编辑
 const onSubmit = () => {
   console.log('submit!', form.value)
   update(form.value)
-  isEditing.value = false
+  isDialogVisible.value = false
 }
 // 取消编辑
 const onCancel = () => {
   console.log('cancel!')
   form.value = { ...oldForm.value }
-  isEditing.value = false
+  isDialogVisible.value = false
 }
 </script>
 
 <template>
   <div :class="['welcome', status]">
-    <el-form :model="form" label-width="auto" style="max-width: 600px">
-      <el-form-item label="name">
-        <el-input v-if="isEditing" v-model="form.name" />
-        <div v-else class="form-item-cont" @click="edit">{{ form.name }}</div>
-      </el-form-item>
-      <el-form-item label="address">
-        <el-input v-if="isEditing" v-model="form.address" />
-        <div v-else class="form-item-cont" @click="edit">{{ form.address }}</div>
-      </el-form-item>
-      <div v-if="isEditing" style="text-align: center;">
-        <el-button type="primary" @click="onSubmit">Create</el-button>
-        <el-button @click="onCancel">Cancel</el-button>
+    <div class="welcome-top"><span>{{ form.name }}</span><span class="edit" @click="edit">编辑</span></div>
+    <div style="flex: 1;">
+      <div>
+        地址: <br />
+        {{ form.address }}
       </div>
-    </el-form>
+      <div>
+        地址: <br />
+        {{ form.address }}
+      </div>
+    </div>
+    <div class="footer">
+      <el-button :type="{ connecting: 'primary', connected: 'success', connecterror: 'danger' }[status]" size="small"
+        round>{{ status }}</el-button>
+    </div>
+    <el-dialog v-model="isDialogVisible" title="编辑信息" width="500" :before-close="onCancel">
+      <el-form :model="form" label-width="auto">
+        <el-form-item label="name">
+          <el-input v-model="form.name" />
+        </el-form-item>
+        <el-form-item label="address">
+          <el-input v-model="form.address" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <el-button @click="onCancel">取消</el-button>
+        <el-button type="primary" @click="onSubmit">提交</el-button>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
 <style scoped>
 .welcome {
-  padding: 5px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f5f9fe;
+  box-shadow: 0 0 4px rgba(245, 249, 254, 0.1);
   height: 100%;
+  display: flex;
+  flex-direction: column;
+
   &:hover {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 8px rgba(245, 249, 254, 0.2);
   }
 }
+
 .connected {
-  background-color: rgba(0, 255, 0, 0.1);
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+  /* background-color: rgba(0, 255, 0, 0.1); */
+  /* box-shadow: 0 0 10px rgba(0, 255, 0, 0.1); */
 }
+
 .connecterror {
-  background-color: rgba(255, 0, 0, 0.1);
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.1);
+  /* background-color: rgba(255, 0, 0, 0.1); */
+  /* box-shadow: 0 0 10px rgba(255, 0, 0, 0.1); */
 }
-.form-item-cont {
-  width: 100%;
+
+.welcome-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.edit {
+  font-size: 12px;
+  color: #4a90e2;
+  cursor: pointer;
+}
+
+.footer {
+  height: 50px;
+  font-size: 12px;
+  border-top: 1px solid #ebeef5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

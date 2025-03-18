@@ -34,10 +34,11 @@ const handleUpdate = ({ index, ...arg }) => {
 
 <style scoped>
 .home {
-  height: calc(100vh - 2rem - 50px);
+  height: calc(100vh - 2rem - 200px);
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
+  gap: 30px;
 }
 </style>
