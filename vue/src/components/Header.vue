@@ -303,7 +303,8 @@ updateTime()
             <el-button class="authorization" type="primary">授权</el-button>
         </div>
         <div class="right">
-            服务器时间：{{ time }}
+            <span>离线中...</span>
+            <!-- 服务器时间：{{ time }} -->
         </div>
 
     </div>

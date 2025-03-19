@@ -13,13 +13,33 @@ const props = defineProps({
     type: String,
     required: true
   },
+  Nameplate: {
+    type: String,
+    required: true
+  },
+  client: {
+    type: String,
+    required: true
+  },
+  workshop: {
+    type: String,
+    required: true
+  },
+  ProductionLine: {
+    type: String,
+    required: true
+  },
+  Remark: {
+    type: String,
+    required: true
+  },
   status: {
     type: String,
     required: true
   }
 })
 // 使用 toRefs 解构 info 对象，并保持响应式
-const { index, name, address, status } = toRefs(props)
+const { index, name, Nameplate, client, workshop, ProductionLine, Remark, status } = toRefs(props)
 
 const emit = defineEmits(['update'])
 
@@ -93,12 +113,16 @@ onUnmounted(() => {
 })
 
 // 初始创建 WebSocket 连接
-// createWebSocket()
+createWebSocket()
 
 // 表单数据
 const form = ref({
   name: name.value,
-  address: address.value,
+  Nameplate: Nameplate.value,
+  client: client.value,
+  workshop: workshop.value,
+  ProductionLine: ProductionLine.value,
+  Remark: Remark.value,
 })
 // 保存编辑前的数据
 const oldForm = ref(form.value)
@@ -121,19 +145,67 @@ const onCancel = () => {
   form.value = { ...oldForm.value }
   isDialogVisible.value = false
 }
+
+const clients = ref([
+  {
+    label: '客户1',
+    value: '客户1',
+  }, {
+    label: '客户2',
+    value: '客户2',
+  }, {
+    label: '客户3',
+    value: '客户3',
+  },
+])
+
+const workshops = ref([
+  {
+    label: '车间1-1',
+    value: '车间1-1',
+  }, {
+    label: '车间1-2',
+    value: '车间1-2',
+  }, {
+    label: '车间1-3',
+    value: '车间1-3',
+  },
+])
+
+const ProductionLines = ref([
+  {
+    label: '产线1-1-1',
+    value: '产线1-1-1',
+  }, {
+    label: '产线1-1-2',
+    value: '产线1-1-2',
+  }, {
+    label: '产线1-1-3',
+    value: '产线1-1-3',
+  },
+])
 </script>
 
 <template>
   <div :class="['welcome', status]">
-    <div class="welcome-top"><span>{{ form.name }}</span><span class="edit" @click="edit">编辑</span></div>
+    <div class="welcome-top"><span>{{ form.name }}</span><span v-if="status === 'connecterror'" class="edit"
+        @click="edit">编辑</span></div>
     <div style="flex: 1;">
       <div>
-        地址: <br />
-        {{ form.address }}
+        铭牌:
+        <div class="welcome-cont">{{ form.Nameplate }}</div>
       </div>
       <div>
-        地址: <br />
-        {{ form.address }}
+        客户:
+        <div class="welcome-cont">{{ form.client }}</div>
+      </div>
+      <div>
+        车间:
+        <div class="welcome-cont">{{ form.workshop }}</div>
+      </div>
+      <div>
+        产线:
+        <div class="welcome-cont">{{ form.ProductionLine }}</div>
       </div>
     </div>
     <div class="footer">
@@ -142,11 +214,26 @@ const onCancel = () => {
     </div>
     <el-dialog v-model="isDialogVisible" title="编辑信息" width="500" :before-close="onCancel">
       <el-form :model="form" label-width="auto">
-        <el-form-item label="name">
+        <el-form-item label="名字">
           <el-input v-model="form.name" />
         </el-form-item>
-        <el-form-item label="address">
-          <el-input v-model="form.address" />
+        <el-form-item label="铭牌">
+          <el-input v-model="form.Nameplate" />
+        </el-form-item>
+        <el-form-item label="客户">
+          <el-select v-model="form.client" placeholder="Select">
+            <el-option v-for="item in clients" :key="item.value" :label="item.label" :value="item.value" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="车间">
+          <el-select v-model="form.workshop" placeholder="Select">
+            <el-option v-for="item in workshops" :key="item.value" :label="item.label" :value="item.value" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="产线">
+          <el-select v-model="form.ProductionLine" placeholder="Select">
+            <el-option v-for="item in ProductionLines" :key="item.value" :label="item.label" :value="item.value" />
+          </el-select>
         </el-form-item>
       </el-form>
       <template #footer>
@@ -192,6 +279,10 @@ const onCancel = () => {
   font-size: 12px;
   color: #4a90e2;
   cursor: pointer;
+}
+
+.welcome-cont {
+  text-indent: 2em;
 }
 
 .footer {
