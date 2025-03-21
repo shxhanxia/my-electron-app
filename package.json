@@ -4,9 +4,9 @@
   "description": "app",
   "main": "src/main.js",
   "scripts": {
-    "start": "NODE_ENV=development electron-forge start",
-    "package": "NODE_ENV=production electron-forge package",
-    "make": "cd vue && npm run build && cd .. && NODE_ENV=production electron-forge make"
+    "start": "cross-env NODE_ENV=development electron-forge start",
+    "package": "cross-env NODE_ENV=production electron-forge package",
+    "make": "cd vue && npm run build && cd .. && cross-env NODE_ENV=production electron-forge make"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,7 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.7.0",
     "@electron-forge/plugin-fuses": "^7.7.0",
     "@electron/fuses": "^1.8.0",
+    "cross-env": "^7.0.3",
     "electron": "^35.0.1",
     "electron-reload": "^2.0.0-alpha.1"
   },
