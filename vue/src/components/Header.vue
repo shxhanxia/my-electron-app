@@ -285,6 +285,9 @@ const options = [
     },
 ]
 
+const Authorization = () => {
+    alert('授权成功')
+}
 const time = ref(new Date().toLocaleString())
 
 const updateTime = () => {
@@ -307,7 +310,7 @@ const logout = () => {
         <div class="left">
             <img class="logo" src="@/assets/logo.svg" alt="">
             <el-cascader style="width: 500px;" v-model="value" :options="options" :props="props" @change="handleChange" />
-            <el-button class="authorization" type="primary">授权</el-button>
+            <el-button class="authorization" type="primary" @click="Authorization">授权</el-button>
         </div>
         <div class="right">
             <span>离线中...</span>

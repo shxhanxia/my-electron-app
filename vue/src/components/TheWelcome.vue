@@ -113,7 +113,7 @@ onUnmounted(() => {
 })
 
 // 初始创建 WebSocket 连接
-// createWebSocket()
+createWebSocket()
 
 // 表单数据
 const form = ref({
@@ -188,8 +188,10 @@ const ProductionLines = ref([
 
 <template>
   <div :class="['welcome', status]">
-    <div class="welcome-top"><span>{{ form.name }}</span><span v-if="status === 'connecterror'" class="edit"
-        @click="edit">编辑</span></div>
+    <div class="welcome-top">
+      <span>{{ form.name }}</span>
+      <span v-if="status === 'connecterror'" class="edit" @click="edit">编辑</span>
+    </div>
     <div style="flex: 1;">
       <div>
         铭牌:
