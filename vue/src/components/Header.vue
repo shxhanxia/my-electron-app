@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const value = ref([
     '客户1',
@@ -291,8 +292,14 @@ const updateTime = () => {
     requestAnimationFrame(updateTime)
 }
 
-updateTime()
+// updateTime()
 
+const router = useRouter()
+
+const logout = () => {
+    localStorage.removeItem('isLoggedIn')
+    router.push('/login')
+}
 </script>
 
 <template>
@@ -304,9 +311,8 @@ updateTime()
         </div>
         <div class="right">
             <span>离线中...</span>
-            <!-- 服务器时间：{{ time }} -->
+            <el-button class="logout" type="primary" @click="logout">退出登录</el-button>
         </div>
-
     </div>
 </template>
 
@@ -317,7 +323,6 @@ updateTime()
     height: 40px;
     display: flex;
     align-items: center;
-
 }
 
 .header {
@@ -328,7 +333,12 @@ updateTime()
     width: 30px;
     margin-right: 10px;
 }
+
 .authorization {
+    margin-left: 10px;
+}
+
+.logout {
     margin-left: 10px;
 }
 </style>

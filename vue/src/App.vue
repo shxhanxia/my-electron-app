@@ -1,5 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+
+import { onBeforeUnmount } from 'vue'
+
+const clearLoginRecords = () => {
+  localStorage.removeItem('isLoggedIn')
+  localStorage.removeItem('token')
+}
+
+onBeforeUnmount(() => {
+  clearLoginRecords()
+})
 </script>
 
 <template>

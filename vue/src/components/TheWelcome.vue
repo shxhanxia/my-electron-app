@@ -113,7 +113,7 @@ onUnmounted(() => {
 })
 
 // 初始创建 WebSocket 连接
-createWebSocket()
+// createWebSocket()
 
 // 表单数据
 const form = ref({
